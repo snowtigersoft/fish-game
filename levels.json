@@ -1,0 +1,26 @@
+[
+    {
+        "octopus_count": 1,
+        "bubble_count": 5,
+        "octopus_speed": 1,
+        "bubble_speed": 1
+    },
+    {
+        "octopus_count": 2,
+        "bubble_count": 7,
+        "octopus_speed": 2,
+        "bubble_speed": 2
+    },
+    {
+        "octopus_count": 3,
+        "bubble_count": 10,
+        "octopus_speed": 3,
+        "bubble_speed": 3
+    },
+    {
+        "octopus_count": 4,
+        "bubble_count": 15,
+        "octopus_speed": 4,
+        "bubble_speed": 4
+    }
+]

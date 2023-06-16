@@ -3,12 +3,7 @@ import random
 
 import pygame.font
 
-from constants import RED, SCREEN_WIDTH, SCREEN_HEIGHT
-
-# 定义一些常量
-FISH_SPEED = 10
-MIN_BUBBLE_SPEED, MAX_BUBBLE_SPEED = 1, 3
-MIN_OCTOPUS_SPEED, MAX_OCTOPUS_SPEED = 1, 3
+from constants import *
 
 
 class GameObject:
@@ -34,13 +29,13 @@ class Fish(GameObject):
 
 
 class Bubble(GameObject):
-    def __init__(self, x, y, letter):
+    def __init__(self, x, y, letter, max_speed):
         image = pygame.image.load('assets/bubble.png')
         image = pygame.transform.scale(image, (50, 50))
         self.font = pygame.font.Font(None, 50)
         super().__init__(x, y, image)
         self.letter = letter
-        self.speed = random.randint(MIN_BUBBLE_SPEED, MAX_BUBBLE_SPEED)
+        self.speed = random.randint(max(1, max_speed - 2), max_speed)
         self.letter_color = RED  # 默认字母颜色为红色
         self.text = self.font.render(self.letter, True, self.letter_color)
 
@@ -58,14 +53,14 @@ class Bubble(GameObject):
 
 
 class Octopus(GameObject):
-    def __init__(self, x, y):
+    def __init__(self, x, y, max_speed):
         self.image = pygame.image.load('assets/octopus.png')
         # 随机调整章鱼的大小
         octopus_size = random.randint(50, 150)
         self.image = pygame.transform.scale(self.image, (octopus_size, octopus_size))
 
         super().__init__(x, y, self.image)
-        self.speed = random.randint(MIN_OCTOPUS_SPEED, MAX_OCTOPUS_SPEED)
+        self.speed = random.randint(max(1, max_speed - 2), max_speed)
         self.dx = self.speed
         self.dy = self.speed
 
